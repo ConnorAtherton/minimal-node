@@ -1,0 +1,33 @@
+{
+  "name": "minimal-node",
+  "version": "0.1.0",
+  "description": "Minimal node application.",
+  "main": "minimal.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
+    "start": "micro-serve -p 3000 dist/",
+    "test": "mocha --opts tests/.mocha"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs",
+      "transform-async-to-generator",
+			"syntax-async-functions"
+    ]
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "micro-core": "^0.4.0",
+    "request-promise": "^3.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-plugin-transform-async-to-generator": "^6.8.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.10.3"
+  }
+}
